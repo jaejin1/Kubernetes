@@ -38,18 +38,25 @@
 * IAM으로 생성하여 메모해둔 Access key id와 secret access key를 등록한다.
 
 > $ sudo apt update
+
 > $ sudo apt install -y awscli
+
 > $ aws configure
 
 > $ aws iam create-group --group-name kops
 
 > $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess --group-name kops
+
 > $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess --group-name kops
+
 > $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --group-name kops
+
 > $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/IAMFullAccess --group-name kops
+
 > $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess --group-name kops
 
 > $ aws iam create-user --user-name kops
+
 > $ aws iam add-user-to-group --user-name kops --group-name kops
 
 * AWS에 객체를 생성하기 위해 필요하다.
@@ -59,8 +66,11 @@
 kops를 이용해 쿠버네티스를 설치하기 위해 kops를 설치한다.
 
 > $ sudo snap install kubectl --classic
+
 > $ curl -LO https://github.com/kubernetes/kops/releases/download/1.9.1/kops-linux-amd64
+
 > $ chmod +x kops-linux-amd64
+
 > $ mv ./kops-linux-amd64 /usr/local/bin/kops
 
 에러가 난다면 아마 버전때문일확률이 높다.
@@ -72,6 +82,7 @@ kops를 이용해 쿠버네티스를 설치하기 위해 kops를 설치한다.
 * my_id에는 본인의 이름을 넣는다.
 
 > $ export KOPS_CLUSTER_NAME=awskrug.k8s.local
+
 > $ export KOPS_STATE_STORE=s3://kops-awskrug-my_id
 
 > $ aws s3 mb ${KOPS_STATE_STORE} --region ap-northeast-2
