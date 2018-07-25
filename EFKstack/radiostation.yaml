@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radiostation
+  labels:
+    app: loopchain
+spec:
+  selector:
+    matchLabels:
+      app: loopchain
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loopchain
+    spec:
+      volumes:
+      - name: conf
+        hostPath:
+          path: /Users/jaejin/dev/kubernetes_jaejin/github/EFKstack/conf
+          type: Directory
+      - name: storage
+        hostPath:
+          path: /Users/jaejin/dev/kubernetes_jaejin/github/EFKstack/storageRS
+          type: Directory
+      containers:
+      - name: radio-station
+        image: loopchain/looprs:latest
+        ports:
+        - containerPort: 7102
+        - containerPort: 9002
+        volumeMounts:
+        - name: conf
+          mountPath: /conf
+        - name: storage
+          mountPath: /.storage
+        command: ["python3","radiostation.py"]
+        args: ["-o","/conf/rs_conf.json"]
+      nodeSelector:
+        beta.kubernetes.io/fluentd-ds-ready: "true"
+

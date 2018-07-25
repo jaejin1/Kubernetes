@@ -1,0 +1,16 @@
+2018-07-23T00:56:42Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T01:06:23Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T01:55:00Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T02:05:25Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T02:26:19Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T02:43:39Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T05:19:44Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T05:20:13Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T05:22:38Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T06:12:12Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T06:12:35Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T06:14:39Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T06:15:17Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T06:15:20Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}
+2018-07-23T06:15:37Z	fluent.info	{"worker":0,"message":"fluentd worker is now running worker=0"}
+2018-07-23T06:20:44Z	fluent.info	{"worker":0,"message":"fluentd worker is now stopping worker=0"}

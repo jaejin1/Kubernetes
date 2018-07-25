@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peer0
+  labels:
+    app: loopchain
+spec:
+  selector:
+    matchLabels:
+      app: loopchain
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loopchain
+    spec:
+      volumes:
+      - name: conf
+        hostPath:
+          path: /Users/jaejin/dev/kubernetes_jaejin/github/EFKstack/conf
+          type: Directory
+      - name: storage
+        hostPath:
+          path: /Users/jaejin/dev/kubernetes_jaejin/github/EFKstack/storage0
+          type: Directory
+
+      containers:
+      - name: peer0
+        image: loopchain/looppeer:latest
+        ports:
+        - containerPort: 7100
+        - containerPort: 9000
+        volumeMounts:
+        - name: conf
+          mountPath: /conf
+        - name: storage
+          mountPath: /.storage
+        command: ["python3", "peer.py"]
+        args: ["-o", "/conf/peer_conf.json", "-r", "10.1.0.135:7102"]
+      nodeSelector:
+        beta.kubernetes.io/fluentd-ds-ready: "true"
